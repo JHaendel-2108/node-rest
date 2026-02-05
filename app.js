@@ -9,8 +9,10 @@ import router from './routes/router.js';
 
 dotenv.config();
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 const app = express();
+
+
 
 // Use Helmet and explicit Content Security Policy (allow images from localhost)
 app.use(helmet());
@@ -31,4 +33,4 @@ router(app);
 const server = app.listen(port, (error) => {
   if(error) return console.log(`Error: ${error}`);
   console.log(`Server listening on port ${server.address().port}`);
-});
+}); 
