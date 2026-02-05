@@ -1,6 +1,6 @@
 "use strict";
 
-// import packages
+// import packeges
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
@@ -11,17 +11,14 @@ dotenv.config();
 const port = process.env.PORT || 3000;
 const app = express();
 
-// body-parser for JSON - Data
+// body-parser für die JSON-Daten
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 router(app);
 
-
-// Start the Server
-const server = app.listen(port, (error) => 
-{
-    if(error) return console.log(`ERROR: ${error}`);
-    console.log(`Server listening on Port: ${server.address().port}`);
-    
+// start the server
+const server = app.listen(port, (error) => {
+  if(error) return console.log(`Error: ${error}`);
+  console.log(`Server listening on port ${server.address().port}`);
 });
