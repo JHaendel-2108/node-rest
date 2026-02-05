@@ -1,0 +1,22 @@
+{
+  "name": "rest",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Jan Händel",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "mysql2": "^3.16.3"
+  },
+  "nodemonConfig": {
+    "delay": 3000
+  }
+}
