@@ -1,4 +1,4 @@
-"use strikt";
+"use strict";
 
 // import packages
 import express from 'express';
