@@ -4,24 +4,22 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
-import router from './routes/router.js';
 import helmet from 'helmet';
-import { clean } from 'semver';
+import router from './routes/router.js';
 
 dotenv.config();
 
 const port = process.env.PORT || 3000;
 const app = express();
 
-//Use Helmet to set a secure Content Security Policy
-app.use(helmet({
-        contentSecurityPolicy:{
-            directives: {
-                defaultSRC: ["'self'"],
-                imgSRC: ["'self'", "http://localhost:3000", "data:"]
-            }
-        }
-    }));
+// Use Helmet and explicit Content Security Policy (allow images from localhost)
+app.use(helmet());
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],
+    imgSrc: ["'self'", "http://localhost:3000", "http://localhost:3002", "data:"]
+  }
+}));
 
 // body-parser für die JSON-Daten
 app.use(bodyParser.json());
